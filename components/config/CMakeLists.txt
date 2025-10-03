@@ -1,5 +1,5 @@
 idf_component_register(
-    SRCS ""
-    INCLUDE_DIRS "include"
-    REQUIRES ""
+    SRCS "miner_config.c"
+    INCLUDE_DIRS "include" "../.."
+    REQUIRES "nvs_flash"
 )

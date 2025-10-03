@@ -1,5 +1,5 @@
 idf_component_register(
-    SRCS ""
+    SRCS "duinocoin_miner.c"
     INCLUDE_DIRS "include"
-    REQUIRES ""
+    REQUIRES "lwip" "mbedtls" "config" "esp_timer"
 )
