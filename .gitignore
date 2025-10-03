@@ -173,9 +173,27 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 
-# Cursor  
-#  Cursor is an AI-powered code editor.`.cursorignore` specifies files/directories to 
+# Cursor
+#  Cursor is an AI-powered code editor.`.cursorignore` specifies files/directories to
 #  exclude from AI features like autocomplete and code analysis. Recommended for sensitive data
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+
+# ESP-IDF specific
+build/
+sdkconfig
+sdkconfig.old
+sdkconfig.defaults
+managed_components/
+dependencies.lock
+
+# Configuration with secrets
+config.h
+
+# VS Code ESP-IDF extension
+.vscode/
+
+# Project documentation (contains planning notes)
+spec.md
+IMPLEMENTATION_PLAN.md

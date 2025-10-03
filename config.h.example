@@ -1,0 +1,124 @@
+/**
+ * ESP32 Hybrid Crypto Miner - Configuration Template
+ *
+ * INSTRUCTIONS:
+ * 1. Copy this file to config.h: cp config.h.example config.h
+ * 2. Edit config.h with your actual values
+ * 3. NEVER commit config.h (it's in .gitignore for security)
+ *
+ * This file contains example/placeholder values only.
+ */
+
+#ifndef CONFIG_H
+#define CONFIG_H
+
+// =============================================================================
+// WiFi Configuration
+// =============================================================================
+
+#define WIFI_SSID "YourWiFiName"
+#define WIFI_PASSWORD "YourWiFiPassword"
+
+// Note: ESP32 only supports 2.4 GHz WiFi (not 5 GHz)
+// If WiFi connection fails, device will start AP mode:
+//   - SSID: "ESP32-Miner-Setup"
+//   - Password: "duino123"
+//   - IP: http://192.168.4.1
+
+// =============================================================================
+// Bitcoin Configuration (SHA-256 Lottery Mining)
+// =============================================================================
+
+// Solo mining pool configuration
+#define BTC_POOL_URL "public-pool.io"
+#define BTC_POOL_PORT 21496
+
+// Your Bitcoin wallet address (starts with bc1, 3, or 1)
+// Get from: Electrum, BlueWallet, or any Bitcoin wallet
+#define BTC_WALLET_ADDRESS "bc1qxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+// Worker name (can be anything, helps identify your miner)
+#define BTC_WORKER_NAME "ESP32-Miner-01"
+
+// Alternative pool options:
+// - public-pool.io:21496 (recommended, most popular)
+// - solo.ckpool.org:3333 (smaller, friendly community)
+
+// =============================================================================
+// Duino-Coin Configuration (DUCO-S1 Practical Mining)
+// =============================================================================
+
+// Your Duino-Coin username
+// Create account at: https://duinocoin.com/
+#define DUCO_USERNAME "yourusername"
+
+// Mining key (optional but recommended for security)
+// Get from: https://wallet.duinocoin.com/ → Settings → Mining Key
+#define DUCO_MINING_KEY "your_mining_key_here_if_you_have_one"
+
+// Duino-Coin server (default should work)
+#define DUCO_SERVER "server.duinocoin.com"
+#define DUCO_PORT 2811
+
+// =============================================================================
+// Mining Mode Configuration
+// =============================================================================
+
+// Default mining mode on startup
+// 0 = Bitcoin (lottery mining, educational)
+// 1 = Duino-Coin (actual earnings, practical)
+// Recommendation: Start with 1 (Duino-Coin) to see results quickly!
+#define DEFAULT_MINING_MODE 1
+
+// =============================================================================
+// Display Configuration
+// =============================================================================
+
+// Backlight timeout (seconds of inactivity before screen dims)
+#define BACKLIGHT_TIMEOUT_SEC 60
+
+// Default brightness (0-100%)
+#define BACKLIGHT_DEFAULT_BRIGHTNESS 80
+
+// =============================================================================
+// Advanced Configuration (usually don't need to change)
+// =============================================================================
+
+// Web server port
+#define WEB_SERVER_PORT 80
+
+// AP mode configuration (fallback when WiFi fails)
+#define AP_SSID "ESP32-Miner-Setup"
+#define AP_PASSWORD "duino123"
+#define AP_MAX_CONNECTIONS 4
+
+// WiFi connection timeout (seconds)
+#define WIFI_CONNECT_TIMEOUT_SEC 30
+
+// Stats update interval (milliseconds)
+#define STATS_UPDATE_INTERVAL_MS 1000
+
+// Stats history points (for charts)
+#define STATS_HISTORY_POINTS 60  // 60 minutes at 1 point/minute
+
+// Temperature throttling thresholds (Celsius)
+#define TEMP_THROTTLE_THRESHOLD 80
+#define TEMP_SHUTDOWN_THRESHOLD 90
+
+// =============================================================================
+// Security Notes
+// =============================================================================
+
+// NEVER commit config.h to git!
+// NEVER share your:
+//   - Bitcoin seed phrase (12-24 words from wallet creation)
+//   - Duino-Coin password
+//   - WiFi password
+//   - Mining keys
+//
+// Safe to share:
+//   - Bitcoin wallet address (public, like an email)
+//   - Duino-Coin username
+//   - Worker names
+
+#endif // CONFIG_H
